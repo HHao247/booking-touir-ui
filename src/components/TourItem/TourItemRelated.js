@@ -1,6 +1,6 @@
 import './related-posts.css'
 
-function ArticleRelated() {
+function TourRelated() {
   return (
     <article className="related-post__card">
       <a href="/" className="related-post__title">5 BBQ Recipes to Get Your Summer Started</a>
@@ -17,4 +17,4 @@ function ArticleRelated() {
   )
 }
 
-export default ArticleRelated
+export default TourRelated

@@ -1,11 +1,9 @@
-import ArticleLatest from "../components/ArticleLatest";
+import TourList from "../components/TourList";
 
 function HomePage() {
   return (
     <>
-      <ArticleLatest />
-      {/* <ArticlePopular />
-      <ArticleGeneral /> */}
+      <TourList />
     </>
   )
 }

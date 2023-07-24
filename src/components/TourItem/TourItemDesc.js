@@ -1,8 +1,8 @@
 
 
-export default function ArticleItemDesc() {
+export default function TourItemDesc() {
   return (
     <p className="article-item__desc">Markdown is a lightweight markup language with plain-text-formatting
-											syntax. Its design allows it to…</p>
+      syntax. Its design allows it to…</p>
   )
 }

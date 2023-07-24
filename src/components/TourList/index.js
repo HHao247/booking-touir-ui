@@ -1,9 +1,9 @@
 import './latest-news-list.css'
-import ArticleItem from "../ArticleItem";
+import ArticleItem from "../TourItem";
 import MainTitle from '../shared/MainTitle'
 import Button from '../shared/Button';
 
-function ArticleLatest() {
+function TourList() {
   return (
     <div className="latest-news section">
       <div className="tcl-container">
@@ -42,4 +42,4 @@ function ArticleLatest() {
   )
 }
 
-export default ArticleLatest
+export default TourList

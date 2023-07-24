@@ -1,6 +1,6 @@
 
 
-export default function ArticleItemStats() {
+export default function TourItemStats() {
   return (
     <ul className="article-item__stats">
       <li>

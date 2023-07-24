@@ -1,6 +1,6 @@
 // import { Link } from 'react-router-dom';
 
-export default function ArticleItemCategories() {
+export default function TourItemCategories() {
   return (
     <ul className="article-item__categories">
       <li><a href="/" className="btn btn-category">News</a></li>

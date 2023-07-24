@@ -1,6 +1,6 @@
 // import { Link } from 'react-router-dom';
 
-export default function ArticleItemThumb() {
+export default function TourItemThumb() {
   return (
     <div className="article-item__thumbnail">
       <a href="/">

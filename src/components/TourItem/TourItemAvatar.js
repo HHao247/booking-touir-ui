@@ -1,5 +1,5 @@
 
-export default function ArticleItemAvatar() {
+export default function TourItemAvatar() {
   return (
     <div className="article-item__author-image">
       <a aria-label="John Doe" href="/">
