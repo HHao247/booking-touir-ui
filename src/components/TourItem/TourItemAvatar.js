@@ -6,5 +6,6 @@ export default function TourItemAvatar() {
         <img src="assets/images/john-doe.png" alt="john-doe" />
       </a>
     </div>
+
   )
 }

@@ -1,5 +1,5 @@
 import Button from "../components/shared/Button";
-import ArticleItem from "../components/TourItem";
+import TourItem from "../components/TourItem";
 import MainTitle from "../components/shared/MainTitle";
 import { getQueryStr } from "../helpers";
 
@@ -14,7 +14,7 @@ function SearchPage() {
 
         <div className="tcl-row tcl-jc-center">
           <div className="tcl-col-12 tcl-col-md-8">
-            <ArticleItem
+            <TourItem
               isStyleCard
               isShowCategoies
               isShowAvatar={false}
@@ -22,7 +22,7 @@ function SearchPage() {
             />
           </div>
           <div className="tcl-col-12 tcl-col-md-8">
-            <ArticleItem
+            <TourItem
               isStyleCard
               isShowCategoies
               isShowAvatar={false}
@@ -30,7 +30,7 @@ function SearchPage() {
             />
           </div>
           <div className="tcl-col-12 tcl-col-md-8">
-            <ArticleItem
+            <TourItem
               isStyleCard
               isShowCategoies
               isShowAvatar={false}
