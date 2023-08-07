@@ -1,23 +1,21 @@
-import './post-detail.css'
-import PostDetailComments from "./PostDetailComments"
-import PostDetailRichText from "./PostDetailRichText"
-import PostDetailTags from "./PostDetailTags"
+import './post-detail.css';
+import PostDetailComments from './PostDetailComments';
+import PostDetailRichText from './PostDetailRichText';
 
 function PostDetailContent() {
   return (
     <div className="post-detail__content">
       <div className="thumbnail">
+        {/* image ò detail */}
         <img src="/assets/images/da-lat.jpg" alt="blog-title" />
       </div>
-      <div className="content-padding">
+      <div className="content-padding ">
         <PostDetailRichText />
-
-        <PostDetailTags />
-
         <PostDetailComments />
       </div>
+      <div className="spacing"></div>
     </div>
-  )
+  );
 }
 
-export default PostDetailContent
+export default PostDetailContent;

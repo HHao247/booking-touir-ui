@@ -3,20 +3,11 @@ import cls from 'classnames';
 import TourItemThumb from './TourItemThumb';
 import TourItemTitle from './TourItemTitle';
 import TourItemInfo from './TourItemInfo';
-;
-
-export default function TourItem({
-  isStyleRow = false,
-  isStyleCard = false,
-  isShowDesc = false,
-  isShowCategoies = false,
-  isShowAvatar = true,
-}) {
-
+export default function TourItem({ isStyleRow = false, isStyleCard = false, isShowAvatar = true }) {
   const classes = cls('article-item', {
     'style-card': isStyleCard,
-    'style-row': isStyleRow,
-  })
+    'style-row': isStyleRow
+  });
 
   return (
     <article className={classes}>
@@ -26,5 +17,5 @@ export default function TourItem({
         <TourItemInfo isShowAvatar={isShowAvatar} />
       </div>
     </article>
-  )
+  );
 }

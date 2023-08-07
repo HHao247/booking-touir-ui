@@ -1,9 +1,7 @@
-import './latest-news-list.css'
-
-import MainTitle from '../shared/MainTitle'
+import './latest-news-list.css';
+import MainTitle from '../shared/MainTitle';
 import Button from '../shared/Button';
 import TourDL from '../TourDL';
-
 
 function TourList() {
   return (
@@ -12,7 +10,9 @@ function TourList() {
         <MainTitle>Các Tour du lịch trong nước</MainTitle>
 
         <div className="latest-news__list spacing">
-
+          <div className="latest-news__card">
+            <TourDL />
+          </div>
           <div className="latest-news__card">
             <TourDL />
           </div>
@@ -24,12 +24,13 @@ function TourList() {
           </div>
         </div>
         <div className="text-center">
-          <Button type="primary" size="large" loading={false}>Tải thêm</Button>
+          <Button type="primary" size="large" loading={false}>
+            Xem thêm
+          </Button>
         </div>
       </div>
     </div>
-
-  )
+  );
 }
 
-export default TourList
+export default TourList;

@@ -35,7 +35,7 @@ function App() {
             <RegisterPage />
           </Route>
         </Switch>
-        <div className="spacing" />
+        {/* <div className="spacing" /> */}
         <Footer />
       </div>
     </BrowserRouter>
