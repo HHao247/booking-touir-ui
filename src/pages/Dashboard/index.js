@@ -1,11 +1,14 @@
 import React from 'react';
 
-function Dashboard() {
+import FunctionsBar from './FunctionsBar';
+import ContentAdmin from './ContentAdmin';
+function DashboardAdmin(props) {
   return (
-    <div>
-      <h1>nguyen haong hảo</h1>
+    <div style={{ display: 'flex' }}>
+      <FunctionsBar />
+      <ContentAdmin />
     </div>
   );
 }
 
-export default Dashboard;
+export default DashboardAdmin;

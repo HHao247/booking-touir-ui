@@ -1,6 +1,6 @@
-import './button.css'
-import cls from 'classnames'
-import IconLoading from '../IconLoading'
+import './button.css';
+import cls from 'classnames';
+import IconLoading from '../IconLoading';
 
 function Button({
   type = 'default',
@@ -13,13 +13,16 @@ function Button({
   children,
   ...restProps
 }) {
-
-  const classes = cls('btn', {
-    'btn-default': type === 'default',
-    'btn-category': type === 'category',
-    'btn-primary': type === 'primary',
-    'btn-size-large': size === 'large'
-  }, className)
+  const classes = cls(
+    'btn',
+    {
+      'btn-default': type === 'default',
+      'btn-category': type === 'category',
+      'btn-primary': type === 'primary',
+      'btn-size-large': size === 'large'
+    },
+    className
+  );
 
   const content = (
     <>
@@ -27,23 +30,19 @@ function Button({
       {children}
       {loading && loadingPos === 'right' && <IconLoading />}
     </>
-  )
+  );
 
   const injectedProps = {
     className: classes,
     type: htmlType,
     ...restProps
-  }
+  };
 
   if (as === 'a') {
-    return (
-      <a {...injectedProps}>{ content }</a>
-    )
+    return <a {...injectedProps}>{content}</a>;
   }
 
-  return (
-    <button {...injectedProps}>{ content }</button>
-  )
+  return <button {...injectedProps}>{content}</button>;
 }
 
-export default Button
+export default Button;

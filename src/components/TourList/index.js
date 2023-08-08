@@ -1,13 +1,13 @@
 import './latest-news-list.css';
 import MainTitle from '../shared/MainTitle';
 import Button from '../shared/Button';
-import TourDL from '../TourDL';
+import TourDL from '../TourItem';
 
 function TourList() {
   return (
     <div className="latest-news section" style={{ backgroundColor: '#ECF0F5' }}>
       <div className="tcl-container">
-        <MainTitle>Các Tour du lịch trong nước</MainTitle>
+        <MainTitle>Tour du lịch trong nước</MainTitle>
 
         <div className="latest-news__list spacing">
           <div className="latest-news__card">

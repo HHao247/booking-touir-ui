@@ -8,7 +8,7 @@ import RegisterPage from './pages/RegisterPage';
 import SearchPage from './pages/SearchPage';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Dashboard from './pages/Dashboard';
+import DashboardAdmin from './pages/Dashboard/';
 
 function App() {
   return (
@@ -22,8 +22,8 @@ function App() {
           <Route path="/post">
             <PostDetailPage />
           </Route>
-          <Route path="/hao">
-            <Dashboard />
+          <Route path="/dashboard">
+            <DashboardAdmin />
           </Route>
           <Route path="/search">
             <SearchPage />
@@ -35,7 +35,6 @@ function App() {
             <RegisterPage />
           </Route>
         </Switch>
-        {/* <div className="spacing" /> */}
         <Footer />
       </div>
     </BrowserRouter>

@@ -1,24 +1,38 @@
-import { Link } from 'react-router-dom';
 import './card.css';
+import { formatNumber } from '../../helpers';
+import Button from '../shared/Button';
+import { useState } from 'react';
+import DialogPrice from './DialogPrice';
+
 function PostDetailPrice() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
   return (
     <>
-      <div className="card">
-        <h1>Bảng giá</h1>
-        <div className="card-body">
-          <h3>Người lớn : 2000000</h3>
-          <span>
-            <h3>Trẻ em: </h3>20000
-          </span>
-          <Link
-            href="/"
-            className="btn btn-primary"
-            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
-          >
+      <div className="card-price">
+        <h1>Bảng giá vé</h1>
+        <div className="card-body-price">
+          <p>
+            <strong>Người lớn:</strong> {formatNumber(200000)}
+          </p>
+          <p>
+            <strong>Trẻ em:</strong> {formatNumber(200000)}
+          </p>
+        </div>
+        <div className="text-center">
+          <Button type="primary" style={{ margin: '20px' }} size="large" loading={false} onClick={openModal}>
             Đặt ngay
-          </Link>
+          </Button>
         </div>
       </div>
+      <DialogPrice isModalOpen={isModalOpen} closeModal={closeModal} />
     </>
   );
 }

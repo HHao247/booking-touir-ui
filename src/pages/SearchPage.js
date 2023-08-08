@@ -1,7 +1,7 @@
 import Button from '../components/shared/Button';
 import MainTitle from '../components/shared/MainTitle';
 import { getQueryStr } from '../helpers';
-import TourDL from '../components/TourDL';
+import TourItem from '../components/TourItem';
 
 function SearchPage() {
   const queryStr = getQueryStr('q');
@@ -13,16 +13,16 @@ function SearchPage() {
 
         <div className="latest-news__list spacing">
           <div className="latest-news__card">
-            <TourDL />
+            <TourItem />
           </div>
           <div className="latest-news__card">
-            <TourDL />
+            <TourItem />
           </div>
           <div className="latest-news__card">
-            <TourDL />
+            <TourItem />
           </div>
           <div className="latest-news__card">
-            <TourDL />
+            <TourItem />
           </div>
         </div>
         <div className="text-center">

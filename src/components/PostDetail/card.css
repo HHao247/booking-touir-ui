@@ -1,11 +1,27 @@
-.card {
+.card-price {
   background: #FFFFFF;
+  border-radius: 10px;
 }
 
-h1 {
+.card-price h1 {
   text-align: center;
 }
 
-.card-body {
+.card-body-price {
   font-size: 1.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  color: black;
+}
+
+
+.modal-button {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 15px 0px 15px;
+}
+
+.modal-button button {
+  flex-basis: 40%;
+  font-size: large;
 }

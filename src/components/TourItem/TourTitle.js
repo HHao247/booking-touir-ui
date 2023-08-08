@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function TourDLTitle() {
+export default function TourTitle() {
   return (
     <>
       <div className="card-img-top">

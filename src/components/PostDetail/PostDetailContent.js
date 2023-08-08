@@ -6,7 +6,7 @@ function PostDetailContent() {
   return (
     <div className="post-detail__content">
       <div className="thumbnail">
-        {/* image ò detail */}
+        {/* image of detail */}
         <img src="/assets/images/da-lat.jpg" alt="blog-title" />
       </div>
       <div className="content-padding ">

@@ -5,9 +5,6 @@ function PostDetailSidebar() {
     <div className="post-detail__side">
       <PostDetailPrice />
     </div>
-    // <>
-    //   <PostDetailPrice />
-    // </>
   );
 }
 
