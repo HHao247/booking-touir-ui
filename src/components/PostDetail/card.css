@@ -25,3 +25,9 @@
   flex-basis: 40%;
   font-size: large;
 }
+
+.card-price {
+  position: fixed;
+  top: 30%;
+
+}

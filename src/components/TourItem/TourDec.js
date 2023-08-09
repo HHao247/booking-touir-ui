@@ -2,6 +2,7 @@ import React from 'react';
 import { GiCommercialAirplane } from 'react-icons/gi';
 import { IoLocationSharp } from 'react-icons/io5';
 import { IoMdTime } from 'react-icons/io';
+import { BsFillCarFrontFill } from 'react-icons/bs';
 function TourDec() {
   return (
     <div className="row">
@@ -11,7 +12,8 @@ function TourDec() {
             <IoMdTime size={20} color="black" style={{ marginRight: '5px' }} />6 ngày 3 đêm
           </div>
           <div className="content2">
-            <GiCommercialAirplane size={20} color="black" />
+            <GiCommercialAirplane size={20} color="black" style={{ marginRight: '5px' }} />
+            <BsFillCarFrontFill size={20} color="black" />
           </div>
         </div>
         <div className="container">

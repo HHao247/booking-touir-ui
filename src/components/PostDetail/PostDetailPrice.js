@@ -16,9 +16,12 @@ function PostDetailPrice() {
   };
   return (
     <>
-      <div className="card-price">
-        <h1>Bảng giá vé</h1>
+      <div className="card-price" style={{ padding: '10px' }}>
+        <h1 style={{ fontSize: '35px', marginTop: '15px' }}>Bảng giá vé</h1>
         <div className="card-body-price">
+          <p>
+            <strong>Ngày đi :</strong> 15/07/2023
+          </p>
           <p>
             <strong>Người lớn:</strong> {formatNumber(200000)}
           </p>

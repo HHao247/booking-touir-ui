@@ -8,9 +8,12 @@ import RegisterPage from './pages/RegisterPage';
 import SearchPage from './pages/SearchPage';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import ListPage from './pages/Dashboard/ListPage';
+import ListCardPage from './pages/Dashboard/ListCartpage';
 import FunctionsBar from './pages/Dashboard/FunctionsBar';
-import ContentAdmin from './pages/Dashboard/ContentAdmin';
+import AdminPage from './pages/Dashboard/AdminPage';
+import HeaderAdmin from './pages/Dashboard/Header';
+import ListTour from './pages/Dashboard/ListTour';
+import ListUsersPage from './pages/Dashboard/ListUsersPage';
 
 function App() {
   return (
@@ -56,17 +59,24 @@ function DefaultRoutes() {
 function DashboardRoutes() {
   return (
     <>
-      <div style={{ display: 'flex' }}>
-        <div style={{ flexBasis: '20%', marginLeft: '40px', textAlign: 'center' }}>
+      <div style={{ display: 'flex', height: '100vh', width: '100%' }}>
+        <div style={{ flexBasis: '25%', padding: '20px', textAlign: 'center', height: '100%', background: '#FFFFFF' }}>
           <FunctionsBar />
         </div>
-        <div style={{ flexBasis: '70%', marginRight: '40px' }}>
+        <div style={{ flexBasis: '75%' }}>
+          <HeaderAdmin />
           <Switch>
-            <Route path="/dashboard/list">
-              <ListPage />
+            <Route path="/dashboard" exact>
+              <AdminPage />
             </Route>
-            <Route path="/dashboard/content">
-              <ContentAdmin />
+            <Route path="/dashboard/cart">
+              <ListCardPage />
+            </Route>
+            <Route path="/dashboard/list-tour">
+              <ListTour />
+            </Route>
+            <Route path="/dashboard/users">
+              <ListUsersPage />
             </Route>
           </Switch>
         </div>

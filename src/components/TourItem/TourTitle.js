@@ -9,7 +9,7 @@ export default function TourTitle() {
         <h2>Địa điểm đến</h2>
       </div>
       <Link to="/post">
-        <h2 style={{ color: 'black', textAlign: 'center' }}>Tên của tour du lịch</h2>
+        <h2 style={{ color: 'black', fontSize: '25px', margin: '10px 0px 0px 10px' }}>Tên của tour du lịch</h2>
       </Link>
     </>
   );
