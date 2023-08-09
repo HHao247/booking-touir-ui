@@ -5,7 +5,7 @@ function HeaderMenus() {
     <div className="tcl-col-6">
       {/* Nav */}
       <div className="header-nav">
-        <ul className="header-nav__lists">
+        {/* <ul className="header-nav__lists">
           <li>
             <a href="/">Home</a>
           </li>
@@ -48,7 +48,7 @@ function HeaderMenus() {
               </li>
             </ul>
           </li>
-        </ul>
+        </ul> */}
         <ul className="header-nav__lists">
           <li className="user">
             <Link to="/login">
