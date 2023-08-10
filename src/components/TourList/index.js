@@ -1,6 +1,5 @@
 import './latest-news-list.css';
 import MainTitle from '../shared/MainTitle';
-import Button from '../shared/Button';
 import TourDL from '../TourItem';
 
 function TourList() {
@@ -23,11 +22,11 @@ function TourList() {
             <TourDL />
           </div>
         </div>
-        <div className="text-center">
+        {/* <div className="text-center">
           <Button type="primary" size="large" loading={false}>
             Xem thêm
           </Button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

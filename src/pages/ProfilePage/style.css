@@ -1,0 +1,17 @@
+.style-colum {
+  display: flex;
+}
+
+.column {
+  flex: 1;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+span {
+  font-size: 25px;
+  padding: 10px;
+}

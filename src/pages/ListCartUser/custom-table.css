@@ -1,0 +1,23 @@
+.custom-table {
+  padding: 40px 10%;
+}
+
+.table {
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+.table tr {
+  border-bottom: 1px solid black;
+}
+
+/* .table th {
+  border-right: 1px solid black;
+} */
+
+/* 
+.table td {
+  border-right: 1px solid black;
+} */

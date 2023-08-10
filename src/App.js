@@ -8,12 +8,15 @@ import RegisterPage from './pages/RegisterPage';
 import SearchPage from './pages/SearchPage';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import ListCardPage from './pages/Dashboard/ListCartpage';
+// import dashboard
 import FunctionsBar from './pages/Dashboard/FunctionsBar';
 import AdminPage from './pages/Dashboard/AdminPage';
 import HeaderAdmin from './pages/Dashboard/Header';
-import ListTour from './pages/Dashboard/ListTour';
-import ListUsersPage from './pages/Dashboard/ListUsersPage';
+import ListTour from './pages/Dashboard/ListTourAdmin';
+import ListUsersPage from './pages/Dashboard/ListUsersAdmin';
+import ProfilePage from './pages/ProfilePage';
+import ListCardPage from './pages/Dashboard/ListCartAdmin';
+import ListCartUserPage from './pages/ListCartUser';
 
 function App() {
   return (
@@ -40,6 +43,12 @@ function DefaultRoutes() {
         </Route>
         <Route path="/post">
           <PostDetailPage />
+        </Route>
+        <Route path="/profile">
+          <ProfilePage />
+        </Route>
+        <Route path="/cart-user">
+          <ListCartUserPage />
         </Route>
         <Route path="/search">
           <SearchPage />

@@ -10,7 +10,6 @@ function SearchPage() {
     <div className="articles-list section">
       <div className="tcl-container">
         <MainTitle type="search">10 kết quả tìm kiếm với từ khóa "{queryStr}"</MainTitle>
-
         <div className="latest-news__list spacing">
           <div className="latest-news__card">
             <TourItem />
