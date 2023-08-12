@@ -21,7 +21,7 @@ function FunctionsBar(props) {
             className={`custom-link ${selectedLink === '/dashboard/list-tour' ? 'active' : ''}`}
             onClick={() => handleLinkClick('/dashboard/list-tour')}
           >
-            Quản lí danh sách tour
+            Danh sách tour
           </Link>
         </li>
         <li className="list-group-item" style={{ border: 'none' }}>
@@ -30,7 +30,7 @@ function FunctionsBar(props) {
             className={`custom-link ${selectedLink === '/dashboard/cart' ? 'active' : ''}`}
             onClick={() => handleLinkClick('/dashboard/cart')}
           >
-            Danh sách đơn hàng
+            Danh sách tham gia tour
           </Link>
         </li>
         <li className="list-group-item" style={{ border: 'none' }}>

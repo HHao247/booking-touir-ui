@@ -7,7 +7,7 @@ function HeaderAdmin() {
         <div className="mr-auto"></div>
         <p className="navbar-brand">
           <BiUserCircle size={30} />
-          Tên tài khoảng đăng nhập
+          Nguyễn Hoàng Hảo
         </p>
       </div>
     </nav>

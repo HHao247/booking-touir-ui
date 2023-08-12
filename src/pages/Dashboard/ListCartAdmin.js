@@ -1,6 +1,6 @@
 import React from 'react';
 import { formatNumber } from '../../helpers';
-function ListCardPage() {
+function ListCartAdmin() {
   return (
     <div>
       <div>
@@ -30,7 +30,7 @@ function ListCardPage() {
                   <td>TP Hồ Chí Minh</td>
                   <td>Tp Nha Trang</td>
                   <td>25/07/2023</td>
-                  <td>2000000</td>
+                  <td>{formatNumber(2000000)}</td>
                 </tr>
               </tbody>
             </table>
@@ -41,4 +41,4 @@ function ListCardPage() {
   );
 }
 
-export default ListCardPage;
+export default ListCartAdmin;

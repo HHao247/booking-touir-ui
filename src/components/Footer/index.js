@@ -1,4 +1,4 @@
-import './footer.css'
+import './footer.css';
 
 function Footer() {
   return (
@@ -19,10 +19,18 @@ function Footer() {
                 <p>Location</p>
               </div>
               <ul className="footer-content__list">
-                <li><a href="/">Đà Lạt</a></li>
-                <li><a href="/">Nha Trang</a></li>
-                <li><a href="/">Vũng tàu</a></li>
-                <li><a href="/">Hà Nội</a></li>
+                <li>
+                  <a href="/">Đà Lạt</a>
+                </li>
+                <li>
+                  <a href="/">Nha Trang</a>
+                </li>
+                <li>
+                  <a href="/">Vũng tàu</a>
+                </li>
+                <li>
+                  <a href="/">Hà Nội</a>
+                </li>
               </ul>
             </div>
             {/* Footer Column */}
@@ -41,7 +49,17 @@ function Footer() {
                 <p>Fanpage</p>
               </div>
               <div className="footer-facebook">
-                <div className="fb-page" data-href="/" data-tabs data-width data-height data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                <div
+                  className="fb-page"
+                  data-href="/"
+                  data-tabs
+                  data-width
+                  data-height
+                  data-small-header="false"
+                  data-adapt-container-width="true"
+                  data-hide-cover="false"
+                  data-show-facepile="true"
+                >
                   <blockquote cite="/" className="fb-xfbml-parse-ignore">
                     <a href="/">Website đặt tour</a>
                   </blockquote>
@@ -52,8 +70,7 @@ function Footer() {
         </div>
       </div>
     </footer>
-
-  )
+  );
 }
 
-export default Footer
+export default Footer;

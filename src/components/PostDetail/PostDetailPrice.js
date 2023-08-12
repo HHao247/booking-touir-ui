@@ -17,21 +17,19 @@ function PostDetailPrice() {
   return (
     <>
       <div className="card-price" style={{ padding: '10px' }}>
-        <h1 style={{ fontSize: '35px', marginTop: '15px' }}>Bảng giá vé</h1>
+        <h1 style={{ fontSize: '35px', marginTop: '15px' }}>Bảng giá tham gia tour</h1>
         <div className="card-body-price">
           <p>
             <strong>Ngày đi :</strong> 15/07/2023
           </p>
+
           <p>
-            <strong>Người lớn:</strong> {formatNumber(200000)}
-          </p>
-          <p>
-            <strong>Trẻ em:</strong> {formatNumber(200000)}
+            <strong>Giá vé :</strong> {formatNumber(200000)}
           </p>
         </div>
         <div className="text-center">
           <Button type="primary" style={{ margin: '20px' }} size="large" loading={false} onClick={openModal}>
-            Đặt ngay
+            Tham gia ngay
           </Button>
         </div>
       </div>

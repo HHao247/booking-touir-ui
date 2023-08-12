@@ -13,9 +13,9 @@ import FunctionsBar from './pages/Dashboard/FunctionsBar';
 import AdminPage from './pages/Dashboard/AdminPage';
 import HeaderAdmin from './pages/Dashboard/Header';
 import ListTour from './pages/Dashboard/ListTourAdmin';
-import ListUsersPage from './pages/Dashboard/ListUsersAdmin';
+import ListUsersAdmin from './pages/Dashboard/ListUsersAdmin';
 import ProfilePage from './pages/ProfilePage';
-import ListCardPage from './pages/Dashboard/ListCartAdmin';
+import ListCartAdmin from './pages/Dashboard/ListCartAdmin';
 import ListCartUserPage from './pages/ListCartUser';
 
 function App() {
@@ -79,13 +79,13 @@ function DashboardRoutes() {
               <AdminPage />
             </Route>
             <Route path="/dashboard/cart">
-              <ListCardPage />
+              <ListCartAdmin />
             </Route>
             <Route path="/dashboard/list-tour">
               <ListTour />
             </Route>
             <Route path="/dashboard/users">
-              <ListUsersPage />
+              <ListUsersAdmin />
             </Route>
           </Switch>
         </div>

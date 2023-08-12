@@ -6,8 +6,8 @@ function PostDetailHead() {
         <ul className="post-detail__info">
           <li className="item author">
             By{' '}
-            <a href="/">
-              <strong>Hướng dẫn viên</strong>
+            <a href="/#">
+              <strong>Nguyễn Hoàng Hảo</strong>
             </a>
           </li>
         </ul>
