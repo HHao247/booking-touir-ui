@@ -1,13 +1,50 @@
 import React, { useState } from 'react';
 import { BsFillPencilFill } from 'react-icons/bs';
 import { AiFillDelete } from 'react-icons/ai';
+import { RiFileList2Fill } from 'react-icons/ri';
 import { IoIosAddCircleOutline } from 'react-icons/io';
 import DialogAddTour from './DialogAddTour';
-import { formatNumber } from '../../helpers';
-
+import { formatDate, formatNumber } from '../../helpers';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { actFetchTourAsync } from '../../store/post/actions';
+import DialogEditTour from './DialogEditTour';
+import DialogListJoin from './DialogListJoin';
+import { ToastContainer,toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { deleteJTour } from '../../store/user/actions';
 function ListTour() {
+  const dispatch = useDispatch();
+  const postsTour = useSelector(state => state.POST.postsTour);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isListJoinOpen, setIsListJoinOpen] = useState(false);
+  const [selectedTour, setSelectedTour] = useState(null);
+  const [location, setLocation] = useState(null);
+  const [shouldRender, setShouldRender] = useState(false);
 
+
+  useEffect(() => {
+    dispatch(actFetchTourAsync());
+    setShouldRender(false)
+  }, [shouldRender]);
+
+  const openListJoinModal = async (maTour, diemDen) => {
+    await setLocation(diemDen)
+    await setSelectedTour(maTour);
+    setIsListJoinOpen(true)
+  }
+
+  const closeListJoinModal = () => {
+    setIsListJoinOpen(false)
+  }
+  const openEditModal = async (maTour) => {
+    await setSelectedTour(maTour);
+    setIsEditModalOpen(true);
+  }
+  const closeEditModal = () => {
+    setIsEditModalOpen(false);
+  }
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -15,6 +52,26 @@ function ListTour() {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+  const handleDelete = (maTour) => {
+    const result = window.confirm('Bạn có chắc chắn muốn xoa không?');
+    if (result) {
+      dispatch(deleteJTour(maTour)).then((response)=>{
+        if (response.ok) {
+          toast.success('Xóa tour thành công!', {
+            position: toast.POSITION.TOP_RIGHT, 
+            autoClose: 3000 
+          });
+          setShouldRender(true);
+        } else {
+          toast.error('Xóa tour thất bại!', {
+            position: toast.POSITION.TOP_RIGHT, 
+            autoClose: 5000 
+          });
+        }
+      })
+    }
+  }
+
   return (
     <>
       <div>
@@ -40,70 +97,61 @@ function ListTour() {
             <table className="table">
               <thead>
                 <tr>
-                  <th scope="col">Mã Tour</th>
+                  <th scope="col">STT</th>
+
                   <th scope="col">Tên Tour</th>
-                  <th scope="col">Mô tả</th>
-                  <th scope="col">Điểm đi</th>
                   <th scope="col">Điểm đến</th>
                   <th scope="col">Ngày bắt đầu</th>
                   <th scope="col">Giá</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Tour tham quan 3 ngày 2 đêm</td>
-                  <td>Tham quan hồ xuân hương</td>
-                  <td>TP Hồ Chí Minh</td>
-                  <td>Tp Đà Lạt</td>
-                  <td>25/07/2023</td>
-                  <td>{formatNumber(2000000)}</td>
-                  <td>
-                    <button
-                      type="button"
-                      className="btn btn-outline-danger"
-                      style={{ padding: '7px', fontSize: '15px', marginRight: '7px' }}
-                    >
-                      <AiFillDelete size={30} /> Xóa
-                    </button>
-                    <button
-                      type="button"
-                      className="btn btn-outline-danger"
-                      style={{ padding: '7px', fontSize: '15px', marginRight: '7px' }}
-                    >
-                      <BsFillPencilFill size={20} /> Sửa
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>TP Hồ Chí Minh</td>
-                  <td>Tp Nha Trang</td>
-                  <td>25/07/2023</td>
-                  <td>2000000</td>
-                  <td>
-                    <button
-                      type="button"
-                      className="btn btn-outline-danger"
-                      style={{ padding: '7px', fontSize: '15px', marginRight: '7px' }}
-                    >
-                      <AiFillDelete size={30} /> Xóa
-                    </button>
-                    <button
-                      type="button"
-                      className="btn btn-outline-danger"
-                      style={{ padding: '7px', fontSize: '15px', marginRight: '7px' }}
-                    >
-                      <BsFillPencilFill size={25} /> Sửa
-                    </button>
-                  </td>
-                </tr>
+                {postsTour.map((item, index) => (
+                  <tr key={index}>
+                    <th scope="row">{index + 1}</th>
+                    <td>Tour tham quan {item.diemDen}</td>
+                    <td>{item.diemDen}</td>
+                    <td>{formatDate(item.ngayBatDau)}</td>
+                    <td>{formatNumber(item.gia)}</td>
+                    <td>
+                      <button
+                        type="button"
+                        className="btn btn-outline-danger"
+                        style={{ padding: '7px', fontSize: '15px', marginRight: '7px' }}
+                        onClick={()=>handleDelete(item.maTour)}
+                      >
+                        <AiFillDelete size={30}  /> Xóa
+                      </button>
+                      <button
+                        type="button"
+                        className="btn btn-outline-danger"
+                        style={{ padding: '7px', fontSize: '15px', marginRight: '7px' }}
+                        onClick={() => openEditModal(item.maTour)}
+                      >
+                        <BsFillPencilFill size={20} /> Sửa
+                      </button>
+                      <button
+                        type="button"
+                        className="btn btn-outline-primary"
+                        style={{ padding: '7px', fontSize: '15px', marginRight: '7px' }}
+                        onClick={() => openListJoinModal(item.maTour, item.diemDen)}
+                      >
+                        <RiFileList2Fill size={20} /> Danh sách
+                      </button>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
         </form>
       </div>
-      <DialogAddTour isModalOpen={isModalOpen} closeModal={closeModal} />
+      {isModalOpen && (<DialogAddTour isModalOpen={isModalOpen} closeModal={closeModal} setShouldRender={setShouldRender} />)}
+      {isEditModalOpen && (<DialogEditTour isEditModalOpen={isEditModalOpen}
+        setShouldRender={setShouldRender} closeEditModal={closeEditModal}
+        selectedTour={selectedTour} />)}
+      {isListJoinOpen && (<DialogListJoin isListJoinOpen={isListJoinOpen} selectedTour={selectedTour} location={location} closeListJoinModal={closeListJoinModal} />)}
+      <ToastContainer />
     </>
   );
 }

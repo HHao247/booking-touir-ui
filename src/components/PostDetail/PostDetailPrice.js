@@ -1,10 +1,11 @@
 import './card.css';
-import { formatNumber } from '../../helpers';
+import { formatDate, formatNumber } from '../../helpers';
 import Button from '../shared/Button';
 import { useState } from 'react';
 import DialogPrice from './DialogPrice';
-
-function PostDetailPrice() {
+import { ToastContainer } from 'react-toastify';
+function PostDetailPrice({data}) {
+  const {gia,ngayBatDau}=data;
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -14,17 +15,18 @@ function PostDetailPrice() {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
   return (
     <>
       <div className="card-price" style={{ padding: '10px' }}>
-        <h1 style={{ fontSize: '35px', marginTop: '15px' }}>Bảng giá tham gia tour</h1>
+        <h1 style={{ fontSize: '35px', marginTop: '15px' }}>Bảng giá tham gia </h1>
         <div className="card-body-price">
           <p>
-            <strong>Ngày đi :</strong> 15/07/2023
+            <strong>Ngày đi :</strong> {formatDate(ngayBatDau)}
           </p>
 
           <p>
-            <strong>Giá vé :</strong> {formatNumber(200000)}
+            <strong>Giá vé :</strong> {formatNumber(gia)}
           </p>
         </div>
         <div className="text-center">
@@ -33,7 +35,8 @@ function PostDetailPrice() {
           </Button>
         </div>
       </div>
-      <DialogPrice isModalOpen={isModalOpen} closeModal={closeModal} />
+      <DialogPrice isModalOpen={isModalOpen} closeModal={closeModal} data={data}/>
+      <ToastContainer />
     </>
   );
 }

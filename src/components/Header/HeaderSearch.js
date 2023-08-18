@@ -19,7 +19,7 @@ function HeaderSearch() {
 
     const queryStrURI = encodeURIComponent(queryStr)
 
-    history.push('/search?q=' + queryStrURI)
+    history.push('/search?searchText=' + queryStrURI)
   }
 
   return (

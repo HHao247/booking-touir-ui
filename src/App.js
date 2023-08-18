@@ -41,7 +41,7 @@ function DefaultRoutes() {
         <Route path="/" exact>
           <HomePage />
         </Route>
-        <Route path="/post">
+        <Route  path="/post/:maTour">
           <PostDetailPage />
         </Route>
         <Route path="/profile">

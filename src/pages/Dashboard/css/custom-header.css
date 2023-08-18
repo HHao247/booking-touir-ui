@@ -1,0 +1,11 @@
+.username-container {
+  display: flex;
+  align-items: center;
+}
+
+.username {
+  margin-left: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

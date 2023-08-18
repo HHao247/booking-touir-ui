@@ -1,6 +1,9 @@
+import { useSelector } from 'react-redux';
 import './login.css';
 import './style.css';
 function ProfilePage() {
+  const currentUser = useSelector(state => state.USER.currentUser);
+  console.log("hao ", currentUser);
   return (
     <main className="login">
       <div className="tcl-container">
@@ -15,24 +18,24 @@ function ProfilePage() {
                   <div className="column">
                     <div className="row">
                       <span>
-                        <strong>Họ và tên:</strong> Nguyễn Hoàng Hảo
+                        <strong>Họ và tên:</strong> {currentUser.ho} {currentUser.ten}
                       </span>
                     </div>
                     <div className="row">
                       <span>
-                        <strong>Ngày sinh:</strong> 24/07/2001
+                        <strong>Ngày sinh:</strong> {currentUser.ngaySinh}
                       </span>
                     </div>
                   </div>
                   <div className="column">
                     <div className="row">
                       <span>
-                        <strong>Giới tính: </strong> Nam
+                        <strong>Giới tính: </strong> {currentUser.phai}
                       </span>
                     </div>
                     <div className="row">
                       <span>
-                        <strong>Số điện thoại:</strong> 0386978780
+                        <strong>Số điện thoại:</strong> {currentUser.sdt}
                       </span>
                     </div>
                   </div>

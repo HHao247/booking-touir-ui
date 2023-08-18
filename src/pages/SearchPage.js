@@ -1,34 +1,40 @@
-import Button from '../components/shared/Button';
 import MainTitle from '../components/shared/MainTitle';
-import { getQueryStr } from '../helpers';
+import { getNameSearch } from '../helpers';
 import TourItem from '../components/TourItem';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { actFetchSearchTourAsync } from '../store/post/actions';
 
 function SearchPage() {
-  const queryStr = getQueryStr('q');
-
+  const location = useLocation();
+  const dispatch = useDispatch();
+  const keySearch = location.search;
+  const keyword = getNameSearch(keySearch);
+  useEffect(() => {
+    dispatch(actFetchSearchTourAsync(keySearch));
+  }, [keySearch]);
+  const postsSearch = useSelector(state => state.POST.postsSearch);
   return (
     <div className="articles-list section">
       <div className="tcl-container">
-        <MainTitle type="search">10 kết quả tìm kiếm với từ khóa "{queryStr}"</MainTitle>
+        <MainTitle type="search">
+          {postsSearch.length} kết quả tìm kiếm với từ khóa "{keyword}"
+        </MainTitle>
         <div className="latest-news__list spacing">
-          <div className="latest-news__card">
-            <TourItem />
-          </div>
-          <div className="latest-news__card">
-            <TourItem />
-          </div>
-          <div className="latest-news__card">
-            <TourItem />
-          </div>
-          <div className="latest-news__card">
-            <TourItem />
-          </div>
+        {postsSearch.map((item,index) => {
+          return (
+            <div className="latest-news__card" key={index}>
+              <TourItem keyword={keyword} data={item} />
+            </div>
+          )
+        })}
         </div>
-        <div className="text-center">
+        {/* <div className="text-center">
           <Button type="primary" size="large">
             Xem thêm
           </Button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
