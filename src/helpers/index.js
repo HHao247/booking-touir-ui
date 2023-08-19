@@ -30,18 +30,18 @@ export function mappingPostData(item) {
     diemDen: item.diemDen,
     diemDi: item.diemDi,
     gia: item.gia,
-    time: item.loaiTour.tenLoaiTour||'',
+    time: item.loaiTour.tenLoaiTour || '',
     ngayBatDau: item.ngayBatDau,
     moTa: item.moTa,
     image: item.image,
-    noiDung:item.noiDung,
+    noiDung: item.noiDung,
   };
 }
-export function mappingComment(item){
-  return{
-    noiDung:item.noiDung,
-    ho:item.taiKhoan.ho,
-    ten:item.taiKhoan.ten
+export function mappingComment(item) {
+  return {
+    noiDung: item.noiDung,
+    ho: item.taiKhoan.ho,
+    ten: item.taiKhoan.ten
   }
 }
 
@@ -63,4 +63,17 @@ export function formatDateComment() {
   const day = String(currentDate.getDate()).padStart(2, '0');
   const formattedDateTime = `${year}-${month}-${day}T00:00:00Z`;
   return formattedDateTime;
+}
+
+export function TourGuide(value) {
+  switch (value) {
+    case 1:
+      return "Nguyễn Thị Linh";
+    case 2:
+      return "Nguyễn Châu Phúc"
+    case 3:
+      return "Nguyễn Đức Phúc Đại"
+    default:
+      return "Lê Thị Linh"
+  }
 }

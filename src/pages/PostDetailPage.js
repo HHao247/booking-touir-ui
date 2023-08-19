@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import IconLoading from '../components/shared/IconLoading';
-import { actFetchCommentAsync, actGetPostDetailAsync } from '../store/post/actions';
+import {  actGetPostDetailAsync } from '../store/post/actions';
 
 function PostDetailPage() {
   const params = useParams();
@@ -14,7 +14,6 @@ function PostDetailPage() {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   useEffect(() => {
-    // dispatch(actFetchCommentAsync(maTour))
     dispatch(actGetPostDetailAsync(maTour)).then(() => {
       setLoading(true)
     })

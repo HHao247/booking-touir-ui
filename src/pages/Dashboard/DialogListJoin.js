@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import { formatDate, formatNumber } from '../../helpers';
+import { TourGuide, formatDate, formatNumber } from '../../helpers';
 import { useEffect } from 'react';
 import { actGetListJoinAsync } from '../../store/post/actions';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,6 +9,7 @@ export default function DialogListJoin({ isListJoinOpen, closeListJoinModal, sel
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const postListJoinTour = useSelector((state) => state.POST.postsListJoin);
+
   useEffect(() => {
     dispatch(actGetListJoinAsync(selectedTour)).then(() => {
       setLoading(true)
@@ -35,6 +36,7 @@ export default function DialogListJoin({ isListJoinOpen, closeListJoinModal, sel
         <h2 style={{ fontSize: '30px', color: 'black', textAlign: 'center' }}>
           Danh sách tham gia tour {location}
         </h2>
+        <h5>Hướng dẫn viên : {TourGuide(selectedTour)}</h5>
         <div className="custom-table" style={{ padding: '10px 25px' }}>
           <table className="table">
             <thead>
