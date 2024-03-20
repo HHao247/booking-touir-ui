@@ -24,15 +24,15 @@ function FunctionsBar(props) {
             Danh sách tour
           </Link>
         </li>
-        <li className="list-group-item" style={{ border: 'none' }}>
+        {/* <li className="list-group-item" style={{ border: 'none' }}>
           <Link
             to="/dashboard/cart"
             className={`custom-link ${selectedLink === '/dashboard/cart' ? 'active' : ''}`}
             onClick={() => handleLinkClick('/dashboard/cart')}
           >            Danh sách tham gia
           </Link>
-        </li>
-        <li className="list-group-item" style={{ border: 'none' }}>
+        </li> */}
+        {/* <li className="list-group-item" style={{ border: 'none' }}>
           <Link
             to="/dashboard/users"
             className={`custom-link ${selectedLink === '/dashboard/users' ? 'active' : ''}`}
@@ -40,16 +40,8 @@ function FunctionsBar(props) {
           >
             Danh sách khách hàng
           </Link>
-        </li>
-        <li className="list-group-item" style={{ border: 'none' }}>
-          <Link
-            to="/dashboard/content"
-            className={`custom-link ${selectedLink === '/dashboard/content' ? 'active' : ''}`}
-            onClick={() => handleLinkClick('/dashboard/content')}
-          >
-            Header1
-          </Link>
-        </li>
+        </li> */}
+       
       </ul>
     </div>
   );

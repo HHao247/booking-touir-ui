@@ -15,6 +15,7 @@ export default function TourDL({ data, keyword=false }) {
     </div>;
   }
   const { diemDen, gia, time, maTour, image } = data;
+  console.log(data);
   return (
     <>
       <div className="card">

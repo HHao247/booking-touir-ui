@@ -1,4 +1,3 @@
-import Button from '../components/shared/Button';
 import MainTitle from '../components/shared/MainTitle';
 import { getNameSearch } from '../helpers';
 import TourItem from '../components/TourItem';
@@ -16,7 +15,6 @@ function SearchPage() {
     dispatch(actFetchSearchTourAsync(keySearch));
   }, [keySearch]);
   const postsSearch = useSelector(state => state.POST.postsSearch);
-  console.log('postsearcg', postsSearch);
   return (
     <div className="articles-list section">
       <div className="tcl-container">
@@ -32,25 +30,11 @@ function SearchPage() {
           )
         })}
         </div>
-        {/* <div className="latest-news__list spacing">
-          <div className="latest-news__card">
-            <TourItem />
-          </div>
-          <div className="latest-news__card">
-            <TourItem />
-          </div>
-          <div className="latest-news__card">
-            <TourItem />
-          </div>
-          <div className="latest-news__card">
-            <TourItem />
-          </div>
-        </div> */}
-        <div className="text-center">
+        {/* <div className="text-center">
           <Button type="primary" size="large">
             Xem thêm
           </Button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

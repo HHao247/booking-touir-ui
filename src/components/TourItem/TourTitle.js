@@ -5,7 +5,6 @@ import './style.css';
 export default function TourTitle({ diemDen, time, maTour, image,keyword }) {
   const highlightSearch = (diemDen) => {
     const regex = new RegExp(`(${keyword})`, "gi");
-    // return diemDen.replace(regex, `<mark >$1</mark>`)
     return diemDen.replace(regex, (match) => `<mark>${match}</mark>`);
   }
   return (

@@ -10,6 +10,18 @@ const userService = {
   fetchMe: function () {
     return API.callWithToken().get('/taiKhoan/me');
   },
+  joinTour:function (data){
+    return API.callWithToken().post('/thamGia',data)
+  },
+  listJoinTour: function (){
+    return API.callWithToken().get('/thamGia/me')
+  },
+  postComment: function (data){
+    return API.callWithToken().post('/phanHoi',data)
+  },
+  deleteJoin: function (sttThamGia){
+    return API.callWithToken().delete(`/thamGia/${sttThamGia}`)
+  }
 };
 
 

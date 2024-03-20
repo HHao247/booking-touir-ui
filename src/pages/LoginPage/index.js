@@ -48,7 +48,7 @@ function LoginPage() {
           <div className="tcl-col-12 tcl-col-sm-6 block-center">
             <h1 className="form-title text-center">Đăng nhập</h1>
             <div className="form-login-register">
-              <p>{message}</p>
+              {/* <p>{message}</p> */}
               <form autoComplete="off" onSubmit={handleSubmit}>
                 <Input
                   label="Tên đăng nhập"

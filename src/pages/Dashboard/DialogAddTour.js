@@ -5,9 +5,10 @@ import Input from '../../components/shared/Input';
 import { useState } from 'react';
 import { convertDateFormat } from '../../helpers';
 import { useDispatch } from 'react-redux';
-import { actAddTourAsync } from '../../store/admin/actions';
-
-function DialogAddTour({ isModalOpen, closeModal }) {
+import { actAddTourAsync } from '../../store/post/actions';
+import { toast } from 'react-toastify';
+function DialogAddTour({ isModalOpen, closeModal , setShouldRender}) {
+  const [isEditing, setIsEditing] = useState(false);
   const dispatch = useDispatch();
   const customStyles = {
     content: {
@@ -16,7 +17,6 @@ function DialogAddTour({ isModalOpen, closeModal }) {
       margin: 'auto'
     }
   };
-
   const [formData, setFormData] = useState({
     diemDen: '',
     diemDi: '',
@@ -44,19 +44,27 @@ function DialogAddTour({ isModalOpen, closeModal }) {
   }
   const handleAddTour = (e) => {
     e.preventDefault();
-    dispatch(actAddTourAsync(formData).then((response)=>{
+    setIsEditing(true);
+    dispatch(actAddTourAsync(formData)).then((response) => {
       if (response.ok) {
-        alert('theem thanh cong')
-      }else{
-        alert('theem thaat bai')
+        closeModal();
+        toast.success('Thêm sản phẩm thành công!', {
+          position: toast.POSITION.TOP_RIGHT, 
+          autoClose: 5000 
+        });
+        setShouldRender(true);
+      } else {
+        toast.error('Thêm sản phẩm thất bại!', {
+          position: toast.POSITION.TOP_RIGHT, 
+          autoClose: 5000 
+        });
       }
-    }))
-    console.log("add tpur",formData)
-    console.log('thêm tour');
+      setIsEditing(false);
+    })
   };
   return (
     <>
-      <Modal isOpen={isModalOpen} onRequestClose={closeModal} style={customStyles}>
+      <Modal isOpen={isModalOpen && !isEditing} onRequestClose={closeModal} style={customStyles}>
         <h2 style={{ fontSize: '30px', color: 'black', textAlign: 'center' }}>Thêm tour</h2>
         <div className="from-input">
           <Input label="Điểm đến" placeholder="Nhập điểm đến ..." autoComplete="off" onChange={handleChangeValue} name="diemDen" />
@@ -66,9 +74,10 @@ function DialogAddTour({ isModalOpen, closeModal }) {
           <Input label="Trạng thái" placeholder="Nhập trạng thái ..." autoComplete="off" onChange={handleChangeValue} name="trangThai" />
           <Input label="Image" placeholder="Nhập link image..." autoComplete="off" onChange={handleChangeValue} name="image" />
           <Input label="Ngày bắt đầu" placeholder="Nhập ngày bắt đầu ..." autoComplete="off" onChange={handleChangeValue} name="ngayBatDau" />
+          <Input label="Mã loại tour" placeholder="Nhập mã loại tour ..." autoComplete="off" onChange={handleChangeValue} name="maLoaiTour" />
         </div>
         <div className="modal-button">
-          <Button type="category" onClick={closeModal}>
+          <Button type="default" onClick={closeModal}>
             Đóng
           </Button>
           <Button type="primary" onClick={handleAddTour}>

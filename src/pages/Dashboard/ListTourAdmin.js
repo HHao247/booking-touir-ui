@@ -8,16 +8,43 @@ import { formatDate, formatNumber } from '../../helpers';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { actFetchTourAsync } from '../../store/post/actions';
-
+import DialogEditTour from './DialogEditTour';
+import DialogListJoin from './DialogListJoin';
+import { ToastContainer,toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { deleteJTour } from '../../store/user/actions';
 function ListTour() {
   const dispatch = useDispatch();
+  const postsTour = useSelector(state => state.POST.postsTour);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isListJoinOpen, setIsListJoinOpen] = useState(false);
+  const [selectedTour, setSelectedTour] = useState(null);
+  const [location, setLocation] = useState(null);
+  const [shouldRender, setShouldRender] = useState(false);
+
+
   useEffect(() => {
     dispatch(actFetchTourAsync());
-  }, []);
-  const postsTour = useSelector(state => state.POST.postsTour);
+    setShouldRender(false)
+  }, [shouldRender]);
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openListJoinModal = async (maTour, diemDen) => {
+    await setLocation(diemDen)
+    await setSelectedTour(maTour);
+    setIsListJoinOpen(true)
+  }
 
+  const closeListJoinModal = () => {
+    setIsListJoinOpen(false)
+  }
+  const openEditModal = async (maTour) => {
+    await setSelectedTour(maTour);
+    setIsEditModalOpen(true);
+  }
+  const closeEditModal = () => {
+    setIsEditModalOpen(false);
+  }
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -25,6 +52,26 @@ function ListTour() {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+  const handleDelete = (maTour) => {
+    const result = window.confirm('Bạn có chắc chắn muốn xoa không?');
+    if (result) {
+      dispatch(deleteJTour(maTour)).then((response)=>{
+        if (response.ok) {
+          toast.success('Xóa tour thành công!', {
+            position: toast.POSITION.TOP_RIGHT, 
+            autoClose: 3000 
+          });
+          setShouldRender(true);
+        } else {
+          toast.error('Xóa tour thất bại!', {
+            position: toast.POSITION.TOP_RIGHT, 
+            autoClose: 5000 
+          });
+        }
+      })
+    }
+  }
+
   return (
     <>
       <div>
@@ -71,13 +118,15 @@ function ListTour() {
                         type="button"
                         className="btn btn-outline-danger"
                         style={{ padding: '7px', fontSize: '15px', marginRight: '7px' }}
+                        onClick={()=>handleDelete(item.maTour)}
                       >
-                        <AiFillDelete size={30} /> Xóa
+                        <AiFillDelete size={30}  /> Xóa
                       </button>
                       <button
                         type="button"
                         className="btn btn-outline-danger"
                         style={{ padding: '7px', fontSize: '15px', marginRight: '7px' }}
+                        onClick={() => openEditModal(item.maTour)}
                       >
                         <BsFillPencilFill size={20} /> Sửa
                       </button>
@@ -85,6 +134,7 @@ function ListTour() {
                         type="button"
                         className="btn btn-outline-primary"
                         style={{ padding: '7px', fontSize: '15px', marginRight: '7px' }}
+                        onClick={() => openListJoinModal(item.maTour, item.diemDen)}
                       >
                         <RiFileList2Fill size={20} /> Danh sách
                       </button>
@@ -96,7 +146,12 @@ function ListTour() {
           </div>
         </form>
       </div>
-      <DialogAddTour isModalOpen={isModalOpen} closeModal={closeModal} />
+      {isModalOpen && (<DialogAddTour isModalOpen={isModalOpen} closeModal={closeModal} setShouldRender={setShouldRender} />)}
+      {isEditModalOpen && (<DialogEditTour isEditModalOpen={isEditModalOpen}
+        setShouldRender={setShouldRender} closeEditModal={closeEditModal}
+        selectedTour={selectedTour} />)}
+      {isListJoinOpen && (<DialogListJoin isListJoinOpen={isListJoinOpen} selectedTour={selectedTour} location={location} closeListJoinModal={closeListJoinModal} />)}
+      <ToastContainer />
     </>
   );
 }

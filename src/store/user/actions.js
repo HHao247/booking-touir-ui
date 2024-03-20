@@ -1,4 +1,5 @@
 
+import adminService from '../../services/adminService';
 import userService from '../../services/userService';
 
 export const ACT_LOGIN = 'ACT_LOGIN';
@@ -40,7 +41,7 @@ export function actLoginAsync(data) {
       dispatch(actFetchMeAsync(accessToken));
       return {
         ok: true,
-        currentUser:currentUser.loaiTaiKhoan.maLoaiTK
+        currentUser: currentUser.loaiTaiKhoan.maLoaiTK
       }
     } catch (error) {
       return {
@@ -64,12 +65,11 @@ export function actRegisterAsync(data) {
     catch (error) {
       return ({
         ok: false,
-        error: "Đăng ký thất bại "
+        // error: "Đăng ký thất bại "
       })
     }
   }
 }
-
 
 export function actFetchMeAsync(accessToken) {
   return async (dispatch) => {
@@ -87,3 +87,49 @@ export function actFetchMeAsync(accessToken) {
     }
   }
 }
+export function actPostsComment(data) {
+  return async (dispatch) => {
+    try {
+      const response = await userService.postComment(data);
+      return {
+        ok: true
+      };
+    } catch (error) {
+      return {
+        ok: false,
+        error: 'Phan hoi that bai'
+      };
+    }
+  };
+}
+export function deleteJoin(sttThamGia) {
+  return async (dispatch) => {
+    try {
+      await userService.deleteJoin(sttThamGia);
+      return {
+        ok: true
+      };
+    } catch (error) {
+      return {
+        ok: false,
+        error: 'Xoa  that bai'
+      };
+    }
+  }
+}
+export function deleteJTour(maTour) {
+  return async (dispatch) => {
+    try {
+      await adminService.deleteTour(maTour)
+      return {
+        ok: true
+      };
+    } catch (error) {
+      return {
+        ok: false,
+        error: 'Xoa  that bai'
+      };
+    }
+  }
+}
+

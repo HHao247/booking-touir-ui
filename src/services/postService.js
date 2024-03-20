@@ -9,13 +9,16 @@ const postService = {
 		})
 	},
 	getTour: function () {
-		return API.call().get(`/tour/all`);
+		return API.call().get('/tour/all');
 	},
 	getPostDetail: function (maTour) {
 		return API.call().get(`/tour/${maTour}`);
 	},
-	getTourSearch: function (keySearch){
+	getTourSearch: function (keySearch) {
 		return API.call().get(`/tour/all${keySearch}`)
 	},
+	getFetchComment:function (maTour){
+		return API.call().get(`phanHoi/tour/${maTour}`)
+	}
 }
 export default postService;

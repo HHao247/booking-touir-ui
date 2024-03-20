@@ -3,6 +3,7 @@ import { formatDate, formatNumber } from '../../helpers';
 import Button from '../shared/Button';
 import { useState } from 'react';
 import DialogPrice from './DialogPrice';
+import { ToastContainer } from 'react-toastify';
 function PostDetailPrice({data}) {
   const {gia,ngayBatDau}=data;
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -35,6 +36,7 @@ function PostDetailPrice({data}) {
         </div>
       </div>
       <DialogPrice isModalOpen={isModalOpen} closeModal={closeModal} data={data}/>
+      <ToastContainer />
     </>
   );
 }

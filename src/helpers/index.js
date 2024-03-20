@@ -1,7 +1,8 @@
 export function getQueryStr(name) {
   return new URLSearchParams(window.location.search).get(name);
 }
-export function getNameSearch(){
+
+export function getNameSearch() {
   const url = new URL(window.location.href);
   const searchText = url.searchParams.get('searchText');
   return searchText;
@@ -24,21 +25,26 @@ export function formatDate(dateTimeString) {
   return formattedDate;
 }
 export function mappingPostData(item) {
-  // let moTa = item.moTa.replace('<p>', '');
-  // moTa = moTa.replace('</p>', '');
-  // let excerpt = item.moTa.replace('<p>', '');
-  // excerpt = excerpt.replace('</p>', '');
+
   return {
     maTour: item.maTour,
     phuongTien: item.phuongTien ?? 'Oto',
     diemDen: item.diemDen,
-    diemDi:item.diemDi,
-    gia:item.gia,
-    time:item.loaiTour.tenLoaiTour,
-    ngayBatDau:item.ngayBatDau,
-    moTa:item.moTa,
-    image:item.image,
+    diemDi: item.diemDi,
+    gia: item.gia,
+    time: item.loaiTour.tenLoaiTour || '',
+    ngayBatDau: item.ngayBatDau,
+    moTa: item.moTa,
+    image: item.image,
+    noiDung: item.noiDung,
   };
+}
+export function mappingComment(item) {
+  return {
+    noiDung: item.noiDung,
+    ho: item.taiKhoan.ho,
+    ten: item.taiKhoan.ten
+  }
 }
 
 
@@ -49,4 +55,27 @@ export function convertDateFormat(dateString) {
   const year = parts[2];
   const isoDate = year + '-' + month + '-' + day + 'T00:00:00Z';
   return isoDate;
+}
+
+
+export function formatDateComment() {
+  const currentDate = new Date();
+  const year = currentDate.getFullYear();
+  const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+  const day = String(currentDate.getDate()).padStart(2, '0');
+  const formattedDateTime = `${year}-${month}-${day}T00:00:00Z`;
+  return formattedDateTime;
+}
+
+export function TourGuide(value) {
+  switch (value) {
+    case 1:
+      return "Nguyễn Thị Linh";
+    case 2:
+      return "Nguyễn Châu Phúc"
+    case 3:
+      return "Nguyễn Đức Phúc Đại"
+    default:
+      return "Lê Thị Linh"
+  }
 }

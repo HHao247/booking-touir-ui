@@ -7,7 +7,7 @@ function ListUsersAdmin(props) {
   return (
     <div>
       <div>
-        <from className="from-control">
+        <form className="from-control">
           <h2 style={{ padding: '10px', textAlign: 'center', color: 'black' }}>Danh sách khách hàng</h2>
           <div className="custom-table">
             <table className="table">
@@ -58,7 +58,7 @@ function ListUsersAdmin(props) {
               </tbody>
             </table>
           </div>
-        </from>
+        </form>
       </div>
     </div>
   );

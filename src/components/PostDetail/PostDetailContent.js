@@ -11,7 +11,7 @@ function PostDetailContent({ data }) {
       </div>
       <div className="content-padding ">
         <PostDetailRichText moTa={moTa} />
-        <PostDetailComments />
+        <PostDetailComments data={data} />
       </div>
       <div className="spacing"></div>
     </div>

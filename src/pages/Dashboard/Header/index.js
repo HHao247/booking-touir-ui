@@ -24,14 +24,10 @@ function HeaderAdmin() {
             <Link to="/login">
               <div className="username-container">
                 <i className="icons ion-person" />
-                <span className="username">{currentUser?.ten ?? 'Hao'}</span>
+                <span className="username">{currentUser?.ten ?? 'Hoàng Hảo'}</span>
               </div>
             </Link>
-
             <ul>
-              <li>
-                <Link to="/profile">Profile</Link>
-              </li>
               <li>
                 <a href="/login" onClick={handleLogout}>
                   Logout
