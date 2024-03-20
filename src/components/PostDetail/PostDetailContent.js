@@ -2,14 +2,15 @@ import './post-detail.css';
 import PostDetailComments from './PostDetailComments';
 import PostDetailRichText from './PostDetailRichText';
 
-function PostDetailContent() {
+function PostDetailContent({ data }) {
+  const { image, moTa } = data
   return (
     <div className="post-detail__content">
       <div className="thumbnail">
-        <img src="/assets/images/da-lat.jpg" alt="blog-title" />
+        <img src={image} alt="blog-title" />
       </div>
       <div className="content-padding ">
-        <PostDetailRichText />
+        <PostDetailRichText moTa={moTa} />
         <PostDetailComments />
       </div>
       <div className="spacing"></div>

@@ -1,16 +1,9 @@
-function PostDetailHead() {
+function PostDetailHead({ data }) {
+  const { diemDen, loaiTour } = data
   return (
     <div className="post-detail__head">
       <div className="tcl-container">
-        <h1 className="post-detail__title">Tour du lịch Đà lạt 3 ngày - 2 đêm</h1>
-        <ul className="post-detail__info">
-          <li className="item author">
-            By{' '}
-            <a href="/#">
-              <strong>Nguyễn Hoàng Hảo</strong>
-            </a>
-          </li>
-        </ul>
+        <h1 className="post-detail__title">{"Tour tham quan "} {diemDen} {loaiTour.tenLoaiTour}</h1>
       </div>
     </div>
   );

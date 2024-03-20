@@ -4,8 +4,8 @@ function ListCartAdmin() {
   return (
     <div>
       <div>
-        <from className="from-control">
-          <h2 style={{ padding: '10px', textAlign: 'center', color: 'black' }}>Danh sách đơn hàng</h2>
+        <form className="from-control">
+          <h2 style={{ padding: '10px', textAlign: 'center', color: 'black' }}>Danh sách tham gia tour</h2>
           <div className="custom-table">
             <table className="table">
               <thead>
@@ -35,7 +35,7 @@ function ListCartAdmin() {
               </tbody>
             </table>
           </div>
-        </from>
+        </form>
       </div>
     </div>
   );

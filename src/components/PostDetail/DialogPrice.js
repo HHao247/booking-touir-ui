@@ -2,15 +2,17 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import Button from '../shared/Button';
 import { formatNumber } from '../../helpers';
-function DialogPrice({ isModalOpen, closeModal }) {
+import Input from '../shared/Input';
+function DialogPrice({ isModalOpen, closeModal, data }) {
+  const { gia } = data;
   const customStyles = {
     content: {
-      width: '500px',
-      height: '400px',
+      width: '600px',
+      height: '500px',
       margin: 'auto'
     }
   };
-  const [countTicket, setCountTicket] = useState(0);
+  const [countTicket, setCountTicket] = useState(1);
 
   const handleCountTicketChange = e => {
     const selectedValue = parseInt(e.target.value);
@@ -24,6 +26,7 @@ function DialogPrice({ isModalOpen, closeModal }) {
   return (
     <Modal isOpen={isModalOpen} onRequestClose={closeModal} style={customStyles}>
       <h2 style={{ fontSize: '30px', color: 'black', textAlign: 'center' }}>Tham gia tour </h2>
+      
       <div className="row">
         <div className="col-md-12">
           <div className="container">
@@ -36,7 +39,6 @@ function DialogPrice({ isModalOpen, closeModal }) {
                 onChange={handleCountTicketChange}
                 value={countTicket}
               >
-                <option value="0">0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -56,14 +58,16 @@ function DialogPrice({ isModalOpen, closeModal }) {
               </select>
             </div>
           </div>
-          <div className="container">
-            <div className="content1">Tổng tiền giá vé </div>
-            <div className="content2">{formatNumber(20000000)}</div>
-          </div>
         </div>
       </div>
+      <Input label="Điểm đón" placeholder="Nhập điểm đón ..." autoComplete="off" />
+      <Input label="Ghi chú" placeholder="Nhập ghi chú ..." autoComplete="off" />
+      <div className="container">
+            <div className="content1">Tổng tiền giá vé </div>
+            <div className="content2">{formatNumber(gia)}</div>
+          </div>
       <div className="modal-button">
-        <Button type="category" onClick={closeModal}>
+        <Button type="default" onClick={closeModal}>
           Đóng
         </Button>
         <Button type="primary" onClick={handleBooking}>

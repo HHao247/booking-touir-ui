@@ -7,7 +7,7 @@ function ListCartUserPage(props) {
 
   return (
     <div style={{ width: '1100px', margin: 'auto' }}>
-      <from className="from-control">
+      <form className="from-control">
         <h2 style={{ padding: '10px', textAlign: 'center', color: 'black' }}>Danh sách tour tham gia</h2>
         <div className="custom-table">
           <table className="table">
@@ -32,7 +32,7 @@ function ListCartUserPage(props) {
                 <td>
                   <button
                     type="button"
-                    class="btn btn-outline-danger"
+                    className="btn btn-outline-danger"
                     style={{ padding: '7px' }}
                     onClick={handleDeleteCartTour}
                   >
@@ -48,7 +48,7 @@ function ListCartUserPage(props) {
                 <td>Nha Trang</td>
                 <td>26/07/2023</td>
                 <td>
-                  <button type="button" class="btn btn-outline-danger" style={{ padding: '7px' }}>
+                  <button type="button" className="btn btn-outline-danger" style={{ padding: '7px' }}>
                     Hủy đăng ký
                   </button>
                 </td>
@@ -56,7 +56,7 @@ function ListCartUserPage(props) {
             </tbody>
           </table>
         </div>
-      </from>
+      </form>
     </div>
   );
 }
